@@ -1,0 +1,122 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.barra{
+    display: block;
+    background-color: rgb(119, 117, 117);
+    text-align: center;
+    padding-top: 1rem;
+}
+@media(min-width:768px){
+    .barra{
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(119, 117, 117);
+        align-items: center;
+        padding: 1rem 3rem;
+    }
+}
+.barra h1{
+    color: rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    padding-bottom: 10px
+}
+.navegacion{
+    padding-bottom: 15px;
+    font-size: 40px;
+}
+.navegacion a{
+    display: block;
+    color: rgb(119, 117, 117);
+    text-decoration: none;
+    font-weight: bold;
+    padding-top: 1.5rem;
+    font-size: 1.2 rem;
+    margin-top: 15px;
+}
+.navegacion input [type="submit"] {
+    border: none;
+    outline: none;
+    height: 100px;
+    background: rgb(119, 117, 117);
+    color:rgb(0, 0, 0);
+    font-size: 40px;
+}
+@media( min-width: 768px){
+    .navegacion a{
+        display: inline;
+        padding: 1rem;
+    }
+}
+.icono {
+    width: 60px;
+    height: 60px;
+    align: under;
+}
+.buscar {
+    position: absolute;
+    padding: 5px;
+}
+.buscar input {
+    width: 240px;
+    height: 30px;
+    padding: 0 20px;
+    font-size: 18px;
+    color: black;
+    outline: none;
+    border: 1px solid silver;
+    border-radius: 30px;
+}
+.btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background:#000000;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    border-radius: 50%;
+}
+.facebook {
+    width: 50px;
+    height: 50px;
+}
+.blog {
+    width: 50px;
+    height: 50px;
+}
+.text {
+    color: rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 40px;
+}
+.img1 {
+    height: 700px;
+    width: 420px;
+}
+.img2 {
+    height: 700px;
+    width: 420px;
+}
+.img3 {
+    height: 700px;
+    width: 420px;
+}
+.ps1 {
+    height: 700px;
+    width: 420px;
+}
+.parrafo {
+    width:540px
+    font-family: 'Times New Roman', Times, serif;
+    text-align :left ;
+    font-size: 15px;
+    line-height: 1.5;
+}
