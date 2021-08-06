@@ -54,7 +54,7 @@
 .icono {
     width: 60px;
     height: 60px;
-    align: under;
+    text-align: under;
 }
 .buscar {
     position: absolute;
@@ -114,9 +114,9 @@
     width: 420px;
 }
 .parrafo {
-    width:540px
+    width:540px;
     font-family: 'Times New Roman', Times, serif;
-    text-align :left ;
+    text-align: left;
     font-size: 15px;
     line-height: 1.5;
 }
