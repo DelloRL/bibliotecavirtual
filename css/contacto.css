@@ -19,6 +19,7 @@ body {
     font-size: 20px;
     cursor: pointer;
     transition: 0.5s;
+    animation: opacidad 1s;
   }
   
   /* Fondo rojo y opacidad 100 con hover */

@@ -6,7 +6,7 @@ $host = "localhost";
 $connection = mysqli_connect($host, $user, $pass);
 
 $user = $_POST["usuario"];
-print 'El usuario es' . $user . '<br>';
+print 'El usuario es ' . $user . '<br>';
 $contrasena = $_POST["contrasena"];
 print 'La contraseña es ' . $contrasena . '<br>';
 
