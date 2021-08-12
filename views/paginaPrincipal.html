@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
         <title> Biblioteca virtual </title>
         <script src="https://kit.fontawesome.com/db956a52fb.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="../css/biblioteca.css" type="text/css" rel="stylesheet" />
+        <link href="../css/paginaPrincipal.css" type="text/css" rel="stylesheet" />
     </head>
 
     <body> 
@@ -16,7 +17,7 @@
         </header>
         
 
-        <div class="topnav">
+        <div class="topnav" id="myTopnav">
             <a class="active" href="#home">Inicio</a>
             <a href="#about">Acerca de</a>
             <a href="contacto.html">Contacto</a>
@@ -28,14 +29,16 @@
             </div>
         </div>
 
-            <div class="text">
-                <h2>Nuestro catálogo de libros</h2>
-            </div>
-            &nbsp;
-            &nbsp;
-            <img src="../img/im1.jpg" class="img1">
-            <img src="../img/im2.jpg" class="img2">
-            <img src="../img/im3.jpg" class="img3">
+        <div class="text">
+            <h2>Nuestro catálogo de libros</h2>
+        </div>
+
+        <div class="container-libros">
+            <a href="https://chicos.congreso.gob.ar/archivos/El_Principito_completo.pdf"><img src="../img/im1.jpg" class="portada-libro" title="El Principito"></a>
+            <img src="../img/im2.jpg" class="portada-libro">
+            <img src="../img/im3.jpg" class="portada-libro">
+            
+        </div>
 
     </body>
 </html>

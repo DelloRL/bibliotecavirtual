@@ -4,9 +4,11 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #fafafa;
-  background: url(http://www.abc.gov.ar/sites/default/files/chascomus_et_1_1.jpg);
+  background: url(../img/fondo-escuela-contacto.jpg);
   background-size: cover;
 }
+
+
 /* Estilo de botones */
 .btn {
     opacity: 50%;
@@ -62,6 +64,8 @@ h1{
     width: 150px;
 }
 
+
+/* !ANIMACIONES! */
 @keyframes opacidad { 
     0% {
       opacity: 0;
@@ -79,4 +83,39 @@ h1{
 
 
 
+@media screen and (max-width: 600px) { 
+  body{
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+    background-size: cover;
+  }
 
+  .logo1{
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    animation: opacidad 2s;
+    animation: tamaño 2s;
+  }
+
+.logo2{
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    animation: opacidad 2s;
+    animation: tamaño 2s;
+    background-color: white;
+    border-radius: 25px;
+  }
+
+  .facebook{
+    height: 80px;
+    width: 80px; 
+  }
+
+  .blog{
+    height: 80px;
+    width: 80px;
+  }
+}
