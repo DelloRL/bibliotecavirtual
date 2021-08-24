@@ -12,29 +12,18 @@
 
 body {
     font-family: Arial;
-    background: url();
+    background-image: url(../img/biblioteca5.jpeg);
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat; 
     background-size: cover;
-    height: 100vh;
-}
-/* CSS HEADER MAURI*/
-
-.logo {
-    margin-top: 25px;
-    width: 250px;
 }
 
-.logoWrapper {
-    margin: 0 auto;
-    text-align: center;
-}
 
 /*CSS LOGIN/REGISTRO*/
 .form-login {
     width: 400px;
-    height: 21pc;
+    height: 350px;
     border-radius: 15px;
     background: #777777;
     margin: auto;
