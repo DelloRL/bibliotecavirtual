@@ -1,7 +1,9 @@
 <?php
+//Conexiòn a la base de datos.
 $user = "root";
 $pass = "";
 $host = "localhost";
+$database = "bibliotecavirtual";
 
 $connection = mysqli_connect($host, $user, $pass);
 
@@ -16,8 +18,6 @@ if (!$connection){
 else {
     echo "Hemos conectado al servidor <br>";
 }
-
-$database = "bibliotecavirtual";
 
 $db = mysqli_select_db($connection,$database);
 
@@ -38,7 +38,7 @@ if(mysqli_num_rows($result)!=1){
 else{
     $cUsuario = $fila['NombreUsuario'];
     echo "Bienvenido " . $cUsuario;
-    header('Locatiion: menu.php');
+    header('Location: paginaPrincipal.php');
 }
 
 mysqli_close( $connection );
