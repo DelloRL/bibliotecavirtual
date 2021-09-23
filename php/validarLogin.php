@@ -38,7 +38,7 @@ if(mysqli_num_rows($result)!=1){
 else{
     $cUsuario = $fila['NombreUsuario'];
     echo "Bienvenido " . $cUsuario;
-    header('Location: paginaPrincipal.php');
+    //header('Location: paginaPrincipal.php');
 }
 
 mysqli_close( $connection );
