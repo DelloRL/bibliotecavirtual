@@ -52,6 +52,7 @@ body {
 .topnav .search-container {
   float: right;
   border-radius: 15px;
+  margin-right: 16px;
 }
 
 .topnav input[type=text] {
