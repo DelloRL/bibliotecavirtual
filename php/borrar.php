@@ -1,11 +1,8 @@
 <?php
-//Conexiòn a la base de datos.
-$user = "root";
-$pass = "";
+//Conexión a la base de datos.
 $host = "localhost";
-$database = "bibliotecavirtual";
-
-$connection = mysqli_connect($host, $user, $pass);
+$alerta;
+$connection = mysqli_connect('localhost', 'root', '', 'bibliotecavirtual') or die ('error en la base de datos');
 
 $sql = " DELETE FROM libro WHERE clave = '$_REQUEST[clave]'";
 

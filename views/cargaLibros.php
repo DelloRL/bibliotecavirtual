@@ -28,19 +28,28 @@
 
 
     <!-- Main -->
-        <form action="" method="POST" class="container">
+        <form action="../php/insertar.php" method="POST" class="container">
+        <p>
+            <input type="form" name="autor" required placeholder="Autor del Libro">
+        </p>
         <p>
             <input type="form" name="name" required placeholder="Titulo del Libro">
         </p>
-
-        <h4>Añade portada del libro:</h4>
-        <input type="file" id="img" name="img" accept=".jpeg,.jpg,.png"/>
-        <br>
+        <p>
+            <input type="form" name="editorial" required placeholder="Editorial del Libro">
+        </p>
+        <p>
+            <input type="form" name="year" required placeholder="Año del Libro">
+        </p>
 
         <h4>Añade documento PDF del libro:</h4>
-        <input type="file" id="img" name="img" accept=".pdf" />
+        <input type="file" name="pdf" accept=".pdf" />
         <br>
         
+        <h4>Añade portada del libro:</h4>
+        <input type="file" name="imagen" accept=".jpeg,.jpg,.png"/>
+        <br>
+
         <button class="button-submit" type="submit"> Subir libro </button>
     </form>
 </body>

@@ -1,18 +1,17 @@
 <?php
-//Conexiòn a la base de datos.
-$user = "root";
-$pass = "";
+//Conexión a la base de datos.
 $host = "localhost";
-$database = "bibliotecavirtual";
+$alerta;
+$connection = mysqli_connect('localhost', 'root', '', 'bibliotecavirtual') or die ('error en la base de datos');
 
-$connection = mysqli_connect($host, $user, $pass);
+//Insersión
+$sql = "INSERT INTO `libro` (`idLibro`, `autorLibro`, `nombreLibro`, `editorialLibro`, `fechaLibro`, `pdfLibro`, `imagenLibro`) VALUES ('', '".$_POST["autor"]."', '".$_POST["name"]."', '".$_POST["editorial"]."', '".$_POST["year"]."', '".$_POST["pdf"]."', '".$_POST["imagen"]."')";
+echo $sql;
 
-$sql = " INSERT INTO libro (autorLibro, nombreLibro, editorialLibro, fechaLibro, pdfLibro, imagenLibro) 
-VALUES ('$_REQUEST[autor]','$_REQUEST[name]','$_REQUEST[editorial]','$_REQUEST[fecha]','$_REQUEST[pdf]','$_REQUEST[imagen]',)";
+$resultado=mysqli_query($connection, $sql) or die ('error en el query');
 
-mysqli_query($con,$sql);
-mysqli_close($con);
+mysqli_close($connection);
+echo "Inserción exitosa";
+header( "refresh:5; url=../views/paginaPrincipal.php" );
 
-echo "Inserciòn exitosa";
-header( "refresh:5;url=#" );
 ?>
