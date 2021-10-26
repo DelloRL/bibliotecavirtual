@@ -19,19 +19,20 @@ $connection = mysqli_connect($host, $user, $pass);
         <link href="../css/paginaPrincipal.css" type="text/css" rel="stylesheet" />
     </head>
 
-    <body> 
+    <body>
         <header>
             <div class="header">
                 <a href="#" class="logo"><img src="../img/icono.png" alt="Logo Escuela Industrial" class="logoescuela"></a>
               </div>
         </header>
         
-
+        
         <div class="topnav" id="myTopnav">
             <a class="active" href="../views/paginaPrincipal.php">Inicio</a>
-            <a href="#about">Acerca de</a>
             <a href="contacto.html">Contacto</a>
-            <a href="LoginYRegistro.html"><i class="fas fa-user"></i> Usuario</a>
+            <a href="LoginYRegistro.html"><i class="fas fa-user"></i> <?php $usuario ?> </a>
+            <a href="../CRUD/index.php">Listado de Libros</a>
+            <a href="../php/alumnos.php">Listado de Alumnos</a>
             <div class="search-container">
                 <form action="">
                     <input type="text" placeholder="Busca tu libro" name="search">
@@ -40,12 +41,13 @@ $connection = mysqli_connect($host, $user, $pass);
             </div>
         </div>
 
+
         <div class="text">
             <h2>Nuestro catálogo de libros</h2>
         </div>
 
         <div class="container-libros">
-        <a href="https://shortest.link/DOA"><img src="../img/im1.jpg" class="portada-libro" title="matematicas"></a>
+            <a href="https://shortest.link/DOA"><img src="../img/im1.jpg" class="portada-libro" title="matematicas"></a>
             <a href="https://shortest.link/DOD"><img src="../img/img2.jpg" class="portada-libro" title="tecnologia"></a>
             <a href="https://shortest.link/DOF"><img src="../img/img3.jpg" class="portada-libro" title="formacion etica y ciudadana"></a>
             <a href="https://shortest.link/DOH"><img src="../img/img4.jpg" class="portada-libro" title="educacion fisica"></a>
@@ -99,11 +101,6 @@ $connection = mysqli_connect($host, $user, $pass);
             <a href="https://bit.ly/38fuMyv"><img src="../img/img52.png" class="portada-libro" title="filosofia para la ciencia y sociedad"></a>
             <a href="https://bit.ly/3gzfIR0"><img src="../img/img53.jfif" class="portada-libro" title="Los Servicios Sociales en Gran Bretaña"></a>
         </div>
-
-        <a href="cargaLibros.php">
-            <button class="btn" title="Carga libros"><i class="fas fa-plus"></i></button>
-        </a>
-
     </body>
 </html>
 

@@ -15,7 +15,7 @@
     <!-- HEADER -->
     <header>
         <div class="header">
-            <a href="#" class="logo"><img src="../img/icono.png" alt="Logo Escuela Industrial" class="logoescuela"></a>
+            <a href="paginaPrincipal.php" class="logo"><img src="../img/icono.png" alt="Logo Escuela Industrial" class="logoescuela"></a>
         </div>
     </header>
         

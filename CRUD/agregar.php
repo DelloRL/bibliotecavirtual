@@ -6,7 +6,6 @@
 <body>
     <?php
         if(isset($_POST['Enviar'])){
-            $idLibro=$_POST['idLibro'];
             $autorLibro=$_POST['autorLibro'];
             $nombreLibro=$_POST['nombreLibro'];
             $editorialLibro=$_POST['editorialLibro'];
@@ -17,8 +16,8 @@
             include("conexion.php");
             //insert into libro(idLibro, autorLibro, nombreLibro, editorialLibro, fechaLibro, pdfLibro, imagenLibro)
             //values ($idLibro, $autorLibro, $nombreLibro, $editorialLibro, $fechaLibro, $pdfLibro, $imagenLibro);
-            $sql="insert into libro(idLibro, autorLibro, nombreLibro, editorialLibro, fechaLibro, pdfLibro, imagenLibro)
-            values('".$idLibro."', '".$autorLibro."', '".$nombreLibro."', '".$editorialLibro."', '".$fechaLibro."', '".$pdfLibro."', '".$imagenLibro."')";
+            $sql="insert into libro(autorLibro, nombreLibro, editorialLibro, fechaLibro, pdfLibro, imagenLibro)
+            values('".$autorLibro."', '".$nombreLibro."', '".$editorialLibro."', '".$fechaLibro."', '".$pdfLibro."', '".$imagenLibro."')";
 
             $resultado=mysqli_query($conexion,$sql);
 
@@ -40,8 +39,6 @@
     ?>
     <h1>Agregar nuevo libro</h1>
     <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-        <label>ID del libro</label>
-        <input type="text" name="ID del libro"> <br>
 		<label>Autor del libro</label>
         <input type="text" name="Autor del libro"> <br>
 		<label>Nombre del libro</label>
@@ -50,9 +47,9 @@
         <input type="text" name="Editorial del libro"> <br>
 		<label>Fecha del libro</label>
         <input type="text" name="Fecha del libro"> <br>
-		<label>Pdf del libro</label>
+		<label>Pdf del libro</label><br>
         <input type="file" name="Pdf del libro" accept=".pdf" /><br>
-		<label>Imagen del libro</label>
+		<label>Imagen del libro</label><br>
         <input type="file" name="Imagen del libro" accept=".jpeg,.jpg,.png"/><br>
         <input type="submit" name="Enviar" value="AGREGAR">
         <a href="index.php">REGRESAR</a>
