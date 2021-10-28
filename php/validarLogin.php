@@ -32,11 +32,13 @@ else {
     $fila = mysqli_fetch_array($result);
 }
 
+session_start();
+$_SESSION['usuario'] = $consulta;
+
 if(mysqli_num_rows($result)!=1){
     echo "Usuario no válido. <br>";
 }
 else{
-    $_SESSION['usuario'] = $usuario;
     $cUsuario = $fila['NombreUsuario'];
     echo "<br>Bienvenido " . $cUsuario . ".";
     header( "refresh:5; url=../views/paginaPrincipal.php" );
