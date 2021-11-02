@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-09-2021 a las 21:01:11
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.7
+-- Tiempo de generación: 02-11-2021 a las 15:20:22
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -42,7 +43,7 @@ CREATE TABLE `libro` (
 --
 
 INSERT INTO `libro` (`idLibro`, `autorLibro`, `nombreLibro`, `editorialLibro`, `fechaLibro`, `pdfLibro`, `imagenLibro`) VALUES
-(1, '', '', '', 0000, '', '');
+(2, 'a', 'a', 'a', 2000, 'a', 'a');
 
 -- --------------------------------------------------------
 
@@ -52,10 +53,16 @@ INSERT INTO `libro` (`idLibro`, `autorLibro`, `nombreLibro`, `editorialLibro`, `
 
 CREATE TABLE `rol` (
   `idRol` int(11) NOT NULL,
-  `rolAdministrador` text NOT NULL,
-  `rolUsuario` text NOT NULL,
-  `rolInvitado` int(11) NOT NULL
+  `Rol` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `rol`
+--
+
+INSERT INTO `rol` (`idRol`, `Rol`) VALUES
+(1, 'Administrador'),
+(2, 'Usuario');
 
 -- --------------------------------------------------------
 
@@ -66,18 +73,18 @@ CREATE TABLE `rol` (
 CREATE TABLE `usuario` (
   `idUsuario` int(11) NOT NULL,
   `NombreUsuario` text NOT NULL,
-  `ContraseñaUsuario` varchar(10) NOT NULL,
+  `ContrasenaUsuario` varchar(10) NOT NULL,
   `NombreCompleto` text NOT NULL,
   `emailUsuario` varchar(80) NOT NULL,
-  `rolUsuario` text NOT NULL
+  `idRol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `NombreUsuario`, `ContraseñaUsuario`, `NombreCompleto`, `emailUsuario`, `rolUsuario`) VALUES
-(1, 'admin', '29921', 'admin', 'adminbvirtual@gmail.com', 'Administrador');
+INSERT INTO `usuario` (`idUsuario`, `NombreUsuario`, `ContrasenaUsuario`, `NombreCompleto`, `emailUsuario`, `idRol`) VALUES
+(2, 'admin', '29921', 'administrador', 'adminbvirtual@gmail.com', 0);
 
 --
 -- Índices para tablas volcadas
@@ -115,7 +122,7 @@ ALTER TABLE `libro`
 -- AUTO_INCREMENT de la tabla `rol`
 --
 ALTER TABLE `rol`
-  MODIFY `idRol` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idRol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

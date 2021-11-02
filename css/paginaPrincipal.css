@@ -50,6 +50,7 @@ body {
   }
 
 .topnav .search-container {
+  display: flex;
   float: right;
   border-radius: 15px;
   margin-right: 16px;

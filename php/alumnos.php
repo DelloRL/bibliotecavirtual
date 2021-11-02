@@ -1,4 +1,14 @@
 <?php
+session_start();
+$varsession = $_SESSION['usuario'];
+if ($varsession == null || $varsession = '' ){
+    echo 'Usted no tiene autorización para ver esta página, inicie sesiòn o regìstrese. ';
+    header( "refresh:5; url=../views/LoginYRegistro.html" );
+    die();
+}
+?>
+
+<?php
 //Conexión a la base de datos.
 $dbname="bibliotecavirtual";
 $dbuser="root";
@@ -44,9 +54,9 @@ $connection=mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
         <td> <?php echo $mostrar['ContrasenaUsuario'] ?> </td>
         <td> <?php echo $mostrar['NombreCompleto'] ?> </td>
         <td> <?php echo $mostrar['emailUsuario'] ?> </td>
-        <td> <?php echo $mostrar['rolUsuario'] ?> </td>
+        <td> <?php echo $mostrar['idRol'] ?> </td>
         <td> <?php echo "<a href='editarAlumno.php?id=".$mostrar['idUsuario']."'>EDITAR</a>"; ?> </td>
-        <td> <?php echo "<a href='eliminarAlumno.php?id=".$mostrar['idUsuario']."' >ELIMINAR</a>"; ?> </td>
+        <td> <?php echo "<a onClick=\"javascript: return confirm('Desea eliminar este usuario? Este cambio no puede revertirse.');\" href='eliminarAlumno.php?id=".$mostrar['idUsuario']."'> ELIMINAR </a>"; ?> </td>
     </tr>
 
 <?php
@@ -61,3 +71,5 @@ $connection=mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
 ?>
 
 </html>
+
+

@@ -1,4 +1,13 @@
 <?php
+session_start();
+$varsession = $_SESSION['usuario'];
+if ($varsession == null || $varsession = '' ){
+    echo 'Usted no tiene autorización para ver esta página, inicie sesiòn o regìstrese. ';
+    header( "refresh:5; url=../views/LoginYRegistro.html" );
+    die();
+}
+?>
+<?php
 //Conexión a la base de datos.
 $dbname="bibliotecavirtual";
 $dbuser="root";
@@ -18,10 +27,10 @@ $NombreUsuario = $mostrar['NombreUsuario'];
 $ContrasenaUsuario = $mostrar['ContrasenaUsuario'];
 $NombreCompleto = $mostrar['NombreCompleto'];
 $emailUsuario = $mostrar['emailUsuario'];
-$rolUsuario = $mostrar['rolUsuario'];
+$rolUsuario = $mostrar['idRol'];
 ?>
 
-<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+<form action="procesarActualizar.php" method="POST">
     <label>Nombre de Usuario</label>
         <input type="text" name="Nombre de Usuario" value="<?php echo $NombreUsuario; ?>"> <br>
 	<label>Contraseña del usuario</label>
@@ -37,9 +46,10 @@ $rolUsuario = $mostrar['rolUsuario'];
         </select> <br>
         <br>
     <input type="submit" name="Enviar" value="ACTUALIZAR"> <br>
-    <br>
-    <a href="alumnos.php">REGRESAR</a>
 </form>
+<br>
+<a href="alumnos.php">REGRESAR</a>
+
 
 
 <?php

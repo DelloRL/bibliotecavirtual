@@ -7,15 +7,18 @@ $dbpass="";
 
 $connection=mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
 
-$idUsuario = $_POST['idUsuario'];
-$NombreUsuario = $_POST['NombreUsuario'];
-$ContrasenaUsuario = $_POST['ContrasenaUsuario'];
-$NombreCompleto = $_POST['NombreCompleto'];
-$emailUsuario = $_POST['emailUsuario'];
-$rolUsuario = $_POST['rolUsuario'];
+$idUsuario = 'idUsuario';
+$NombreUsuario = 'NombreUsuario';
+$ContrasenaUsuario = 'ContrasenaUsuario';
+$NombreCompleto = 'NombreCompleto';
+$emailUsuario = 'emailUsuario';
+$rolUsuario = 'idRol';
 
-$sql = "UPDATE usuario SET NombreUsuario = '$NombreUsuario', ContrasenaUsuario = '$ContrasenaUsuario', NombreCompleto = '$NombreCompleto',
-emailUsuario = '$emailUsuario', rolUsuario = '$rolUsuario' WHERE idUsuario = '$idUsuario'";
+//Actualizar los datos
+$sql = "UPDATE usuario 
+        SET NombreUsuario = '$NombreUsuario', ContrasenaUsuario = '$ContrasenaUsuario', NombreCompleto = '$NombreCompleto',
+        emailUsuario = '$emailUsuario', idRol = '$rolUsuario' 
+        WHERE idUsuario = '$idUsuario'";
 
 $result=mysqli_query($connection, $sql);
 

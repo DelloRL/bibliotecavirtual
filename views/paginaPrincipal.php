@@ -1,6 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
 <?php
+session_start();
+//error_reporting(0); se usa al final del proyecto para no mostrar errores innecesarios.
+$varsession = $_SESSION['usuario'];
+if ($varsession == null || $varsession = '' ){
+    echo 'Usted no tiene autorización para ver esta página, inicie sesiòn o regìstrese. ';
+    header( "refresh:5; url=../views/LoginYRegistro.html" );
+    die();
+}
+
 //Conexiòn a la base de datos.
 $user = "root";
 $pass = "";
@@ -9,7 +16,8 @@ $database = "bibliotecavirtual";
 
 $connection = mysqli_connect($host, $user, $pass);
 ?>
-
+<!DOCTYPE html>
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1" name="viewport"/>
@@ -30,10 +38,11 @@ $connection = mysqli_connect($host, $user, $pass);
         <div class="topnav" id="myTopnav">
             <a class="active" href="../views/paginaPrincipal.php">Inicio</a>
             <a href="contacto.html">Contacto</a>
-            <a href="LoginYRegistro.html"><i class="fas fa-user"></i> <?php $usuario ?> </a>
+            <a href="LoginYRegistro.html"><i class="fas fa-user"></i> <?php $varsession ?> </a>
             <a href="../CRUD/index.php">Listado de Libros</a>
             <a href="../php/alumnos.php">Listado de Alumnos</a>
             <div class="search-container">
+                <a href="../php/cerrarSession.php"> Cerrar Sesión </a>
                 <form action="">
                     <input type="text" placeholder="Busca tu libro" name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
