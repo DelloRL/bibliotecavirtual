@@ -31,18 +31,20 @@ $rolUsuario = $mostrar['idRol'];
 ?>
 
 <form action="procesarActualizar.php" method="POST">
+  
+        <input type="hidden" name="idUsuario" value="<?php echo $idUsuario; ?>"> <br>
     <label>Nombre de Usuario</label>
-        <input type="text" name="Nombre de Usuario" value="<?php echo $NombreUsuario; ?>"> <br>
+        <input type="text" name="NombreDeUsuario" value="<?php echo $NombreUsuario; ?>"> <br>
 	<label>Contraseña del usuario</label>
-        <input type="text" name="Contraseña del usuario" value="<?php echo $ContrasenaUsuario; ?>"> <br>
+        <input type="text" name="ContraseñaDelUsuario" value="<?php echo $ContrasenaUsuario; ?>"> <br>
 	<label>Nombre Completo del Usuario</label>
-        <input type="text" name="Nombre Completo del Alumno" value="<?php echo $NombreCompleto; ?>"> <br>
+        <input type="text" name="NombreCompletoDelAlumno" value="<?php echo $NombreCompleto; ?>"> <br>
 	<label>Correo del Usuario</label>
-        <input type="text" name="Correo del Alumno" value="<?php echo $emailUsuario; ?>"> <br>
+        <input type="text" name="CorreoDelAlumno" value="<?php echo $emailUsuario; ?>"> <br>
 	<label>Rol del Usuario</label>
-        <select name="Rol del Usuario" value="<?php echo $rolUsuario; ?>">
-            <option value="Usuario">Usuario</option>
-            <option value="Admnistrador">Administrador</option>
+        <select name="RolDelUsuario" value="<?php echo $rolUsuario; ?>">
+            <option value="Usuario" <?php if ($rolUsuario ="Usuario") {echo "selected"; } ?>>Usuario</option>
+            <option value="Admnistrador" <?php if ($rolUsuario ="Administrador"){ echo 'selected';}?>>Administrador</option>
         </select> <br>
         <br>
     <input type="submit" name="Enviar" value="ACTUALIZAR"> <br>
