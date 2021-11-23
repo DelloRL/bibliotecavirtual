@@ -9,12 +9,12 @@ if ($varsession == null || $varsession = '' ){
 }
 
 //Conexiòn a la base de datos.
-$user = "root";
-$pass = "";
-$host = "localhost";
-$database = "bibliotecavirtual";
+$dbname="bibliotecavirtual";
+$dbuser="root";
+$dbhost="localhost";
+$dbpass="";
 
-$connection = mysqli_connect($host, $user, $pass);
+$connection=mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -36,14 +36,24 @@ $connection = mysqli_connect($host, $user, $pass);
         
         
         <div class="topnav" id="myTopnav">
-            <a class="active" href="../views/paginaPrincipal.php">Inicio</a>
-            <a href="contacto.html">Contacto</a>
+            <a class="active" href="../views/paginaPrincipal.php">
+                <i class="fas fa-house-user"></i>
+            </a>
+            <a href="contacto.html">
+                <i class="fas fa-address-book"></i>
+            </a>
             <a href="LoginYRegistro.html"><i class="fas fa-user"></i> <?php $varsession ?> </a>
-            <a href="../CRUD/index.php">Listado de Libros</a>
-            <a href="../php/alumnos.php">Listado de Alumnos</a>
+            <a href="../CRUD/index.php">
+                <i class="fas fa-book-reader"></i>
+            </a>
+            <a href="../php/alumnos.php">
+                <i class="fas fa-user-graduate"></i>
+            </a>
             <div class="search-container">
-                <a href="../php/cerrarSession.php"> Cerrar Sesión </a>
-                <form action="">
+                <a href="../php/cerrarSession.php">
+                    <i class="fas fa-sign-in-alt"></i>
+                </a>
+                <form action="../App/buscar.php" method=POST>
                     <input type="text" placeholder="Busca tu libro" name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
@@ -56,6 +66,29 @@ $connection = mysqli_connect($host, $user, $pass);
         </div>
 
         <div class="container-libros">
+
+
+        <?php
+            //SELECT
+            $sql = "SELECT pdflibro, imagenlibro, NombreLibro FROM libro";
+            $result=mysqli_query($connection, $sql);
+            
+
+            while($mostrar = mysqli_fetch_array($result)){
+?>
+
+                <a href="<?php echo $mostrar['pdflibro'] ?> "><img src="<?php echo $mostrar['imagenlibro'] ?>" class="portada-libro" title="<?php echo $mostrar['NombreLibro'] ?>"></a>
+        
+           <?php
+            }
+            ?>
+
+            
+<?php
+    mysqli_close($connection);
+?>
+
+            <!--
             <a href="https://shortest.link/DOA"><img src="../img/im1.jpg" class="portada-libro" title="matematicas"></a>
             <a href="https://shortest.link/DOD"><img src="../img/img2.jpg" class="portada-libro" title="tecnologia"></a>
             <a href="https://shortest.link/DOF"><img src="../img/img3.jpg" class="portada-libro" title="formacion etica y ciudadana"></a>
@@ -109,7 +142,6 @@ $connection = mysqli_connect($host, $user, $pass);
             <a href="https://bit.ly/3krB8jV"><img src="../img/img51.jpg" class="portada-libro" title="epoca de rosas"></a>
             <a href="https://bit.ly/38fuMyv"><img src="../img/img52.png" class="portada-libro" title="filosofia para la ciencia y sociedad"></a>
             <a href="https://bit.ly/3gzfIR0"><img src="../img/img53.jfif" class="portada-libro" title="Los Servicios Sociales en Gran Bretaña"></a>
-        </div>
+            -->        </div>
     </body>
 </html>
-

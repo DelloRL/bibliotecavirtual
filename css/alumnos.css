@@ -1,0 +1,21 @@
+/* Estilo de botones */
+.btn {
+    opacity: 50%;
+    background-color: rgb(65, 105, 225);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    padding: 12px 16px;
+    margin: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+    animation: opacidad 1s;
+  }
+  
+  /* Fondo rojo y opacidad 100 con hover */
+  .btn:hover {
+    background-color: red;
+    opacity: 100%;
+
+}
