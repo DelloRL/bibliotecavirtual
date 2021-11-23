@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2021 a las 13:21:32
+-- Tiempo de generación: 23-11-2021 a las 23:14:26
 -- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.3.31
+-- Versión de PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -134,7 +134,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `NombreUsuario`, `ContrasenaUsuario`, `NombreCompleto`, `emailUsuario`, `idRol`) VALUES
-(2, 'admin', '29921', 'administrador', 'adminbvirtual@gmail.com', 0);
+(2, 'admin', '29921', 'administrador', 'adminbvirtual@gmail.com', 1);
 
 --
 -- Índices para tablas volcadas
