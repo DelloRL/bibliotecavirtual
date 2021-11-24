@@ -24,8 +24,7 @@
         echo "Tabla seleccionada <br>";
         if (isset($_POST['search'])){
             $q=$_POST['search'];
-            $consulta = "SELECT idLibro, autorLibro, nombreLibro, editorialLibro FROM libro WHERE nombreLibro LIKE'%" .$q. "%' OR autorLibro LIKE '%".$q."%' OR idLibro LIKE '%".$q."%'";
-            echo $consulta . "<br>";
+            $consulta = "SELECT idLibro, autorLibro, nombreLibro, editorialLibro, pdfLibro FROM libro WHERE nombreLibro LIKE'%" .$q. "%' OR autorLibro LIKE '%".$q."%' OR idLibro LIKE '%".$q."%'";
             $result = mysqli_query($connection,$consulta);
             $fila = mysqli_fetch_array($result);
         }
@@ -39,6 +38,7 @@
                     <th>ID del libro</th>
                     <th>Autor del libro</th>
                     <th>Nombre del libro</th>
+                    <th>Link al Libro</th>
                     
                 </tr>
             </thead>
@@ -50,6 +50,7 @@
                     <td>".$fila[0]."</td>
                     <td>".$fila[1]."</td>
                     <td>".$fila[2]."</td>
+                    <td> <a href='".$fila[4]."'>Link Al Libro</a> </td>
                
 
             </tr>";

@@ -2,93 +2,93 @@
 session_start();
 //error_reporting(0); se usa al final del proyecto para no mostrar errores innecesarios.
 $varsession = $_SESSION['usuario'];
-if ($varsession == null || $varsession = '' ){
+if ($varsession == null || $varsession = '') {
     echo 'Usted no tiene autorización para ver esta página, inicie sesiòn o regìstrese. ';
-    header( "refresh:5; url=../views/LoginYRegistro.html" );
+    header("refresh:5; url=../views/LoginYRegistro.html");
     die();
 }
 
 //Conexiòn a la base de datos.
-$dbname="bibliotecavirtual";
-$dbuser="root";
-$dbhost="localhost";
-$dbpass="";
+$dbname = "bibliotecavirtual";
+$dbuser = "root";
+$dbhost = "localhost";
+$dbpass = "";
 
-$connection=mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
+$connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 ?>
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1" name="viewport"/>
-        <title> Biblioteca virtual </title>
-        <script src="https://kit.fontawesome.com/db956a52fb.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="../css/paginaPrincipal.css" type="text/css" rel="stylesheet" />
-    </head>
 
-    <body>
-        <header>
-            <div class="header">
-                <a href="#" class="logo"><img src="../img/icono.png" alt="Logo Escuela Industrial" class="logoescuela"></a>
-              </div>
-        </header>
-        
-        
-        <div class="topnav" id="myTopnav">
-            <a class="active" href="../views/paginaPrincipal.php">
-                <i class="fas fa-house-user"></i>
-            </a>
-            <a href="contacto.html">
-                <i class="fas fa-address-book"></i>
-            </a>
-            <a href="LoginYRegistro.html"><i class="fas fa-user"></i> <?php $varsession ?> </a>
-            <a href="../CRUD/index.php">
-                <i class="fas fa-book-reader"></i>
-            </a>
-            <a href="../php/alumnos.php">
-                <i class="fas fa-user-graduate"></i>
-            </a>
-            <div class="search-container">
-                <a href="../php/cerrarSession.php">
-                    <i class="fas fa-sign-in-alt"></i>
-                </a>
-                <form action="../App/buscar.php" method=POST>
-                    <input type="text" placeholder="Busca tu libro" name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title> Biblioteca virtual </title>
+    <script src="https://kit.fontawesome.com/db956a52fb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../css/paginaPrincipal.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <a href="#" class="logo"><img src="../img/icono.png" alt="Logo Escuela Industrial" class="logoescuela"></a>
         </div>
+    </header>
 
 
-        <div class="text">
-            <h2>Nuestro catálogo de libros</h2>
+    <div class="topnav" id="myTopnav">
+        <a class="active" href="../views/paginaPrincipal.php">
+            <i class="fas fa-house-user"></i>
+        </a>
+        <a href="contacto.html">
+            <i class="fas fa-address-book"></i>
+        </a>
+        <a href="../CRUD/index.php">
+            <i class="fas fa-book-reader"></i>
+        </a>
+        <a href="../php/alumnos.php">
+            <i class="fas fa-user-graduate"></i>
+        </a>
+        <div class="search-container">
+            <a href="../php/cerrarSession.php">
+                <i class="fas fa-sign-in-alt"></i>
+            </a>
+            <form action="../App/buscar.php" method=POST>
+                <input type="text" placeholder="Busca tu libro" name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
         </div>
+    </div>
 
-        <div class="container-libros">
+
+    <div class="text">
+        <h2>Nuestro catálogo de libros</h2>
+    </div>
+
+    <div class="container-libros">
 
 
         <?php
-            //SELECT
-            $sql = "SELECT pdflibro, imagenlibro, NombreLibro FROM libro";
-            $result=mysqli_query($connection, $sql);
-            
+        //SELECT
+        $sql = "SELECT pdflibro, imagenlibro, NombreLibro FROM libro";
+        $result = mysqli_query($connection, $sql);
 
-            while($mostrar = mysqli_fetch_array($result)){
-?>
 
-                <a href="<?php echo $mostrar['pdflibro'] ?> "><img src="<?php echo $mostrar['imagenlibro'] ?>" class="portada-libro" title="<?php echo $mostrar['NombreLibro'] ?>"></a>
-        
-           <?php
-            }
-            ?>
+        while ($mostrar = mysqli_fetch_array($result)) {
+        ?>
 
-            
-<?php
-    mysqli_close($connection);
-?>
+            <a href="<?php echo $mostrar['pdflibro'] ?> "><img src="<?php echo $mostrar['imagenlibro'] ?>" class="portada-libro" title="<?php echo $mostrar['NombreLibro'] ?>"></a>
 
-            <!--
+        <?php
+        }
+        ?>
+
+
+        <?php
+        mysqli_close($connection);
+        ?>
+
+        <!--
             <a href="https://shortest.link/DOA"><img src="../img/im1.jpg" class="portada-libro" title="matematicas"></a>
             <a href="https://shortest.link/DOD"><img src="../img/img2.jpg" class="portada-libro" title="tecnologia"></a>
             <a href="https://shortest.link/DOF"><img src="../img/img3.jpg" class="portada-libro" title="formacion etica y ciudadana"></a>
@@ -142,6 +142,8 @@ $connection=mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
             <a href="https://bit.ly/3krB8jV"><img src="../img/img51.jpg" class="portada-libro" title="epoca de rosas"></a>
             <a href="https://bit.ly/38fuMyv"><img src="../img/img52.png" class="portada-libro" title="filosofia para la ciencia y sociedad"></a>
             <a href="https://bit.ly/3gzfIR0"><img src="../img/img53.jfif" class="portada-libro" title="Los Servicios Sociales en Gran Bretaña"></a>
-            -->        </div>
-    </body>
+            -->
+    </div>
+</body>
+
 </html>
